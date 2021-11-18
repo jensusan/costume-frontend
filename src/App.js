@@ -1,16 +1,12 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
 import { getPlays, addPlay, deletePlay} from './axios'
-
-
-
+import Home from './pages/Home/Home';
 
 function App() {
   return (
     <Routes>
-      <Route>
-
-      </Route>
+      <Route path='' element={<Home/>}/>
     </Routes>
   );
 }

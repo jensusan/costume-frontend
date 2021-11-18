@@ -1,14 +1,14 @@
 const axios = require('axios');
 URL = 'http://127.0.0.1:8000/'
 
-export async function getPlays() {
-    try
-    {const response = await axios.get(`${URL}plays/`)
-    console.log(response)
-    } catch (error) {
-        console.log(error)
-    };
-};
+// export async function getPlays() {
+//     try
+//     {const response = await axios.get(`${URL}plays/`)
+//     let plays = response.data
+//     } catch (error) {
+//         console.log(error)
+//     };
+// };
 
 
 export function addPlay() {
