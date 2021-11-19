@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import NavBar from "../NavBar/NavBar";
+
 const axios = require('axios');
 
 const Characters = () => {
@@ -48,6 +50,7 @@ const Characters = () => {
 
     return(
         <div>
+            <NavBar/>
             <h1>Characters</h1>
         </div>
     )

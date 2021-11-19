@@ -30,9 +30,9 @@ function App() {
     <Routes>
       <Route path='' element={<Home plays={plays}/>}/>
       <Route path='/plays/:id' element={<Play plays={plays}/>} />
-      <Route path='/plays/:id/characters/:id' element={<Characters/>}/>
-      <Route path='/plays/:id/trackers/:id' element={<Trackers/>}/>
-      <Route path='/plays/:id/todos/:id' element={<Todos/>}/>
+      <Route path='/plays/:id/characters/' element={<Characters/>}/>
+      <Route path='/plays/:id/trackers/' element={<Trackers/>}/>
+      <Route path='/plays/:id/todos/' element={<Todos/>}/>
     </Routes>
   );
 }

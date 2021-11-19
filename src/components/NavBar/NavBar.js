@@ -1,11 +1,17 @@
 import { Link } from "react-router-dom";
+import { useParams } from "react-router";
+
 
 const NavBar = () => {
+    const { id } = useParams();
+    
     return(
         <header>
-            <Link to='characters/:id'>Characters</Link>
-            <Link to='trackers/:id'>Costume Tracker</Link>
-            <Link to='todos/:id'>To Do List</Link>
+            <Link to='/'>Home</Link>
+            <Link to={{pathname: `/plays/${id}`}}>Play</Link>
+            <Link to={{pathname: `/plays/${id}/characters`}}>Characters</Link>
+            <Link to={{pathname: `/plays/${id}/todos`}}>Todos</Link>
+            <Link to={{pathname: `/plays/${id}/trackers`}}>Costume Tracker</Link>
         </header>
     )
 }
