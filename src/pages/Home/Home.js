@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import UpdateForm from "./UpdateForm";
+import AddForm from "./AddForm";
 const axios = require('axios');
-
 
    
 const Home = () => {
@@ -17,17 +17,11 @@ const Home = () => {
         };
     };
     
-    function addPlay() {
-        axios.post(`${URL}plays/`, {
-            title: 'The Skriker',
-            author: 'Carol Churchill',
-            reference_img: 'https://wallpaperaccess.com/full/4845847.jpg',
-            concept: 'dark, moody, fairy tale',
-            director_notes: 'muted colors'
-        }).then(response => {
+    function addPlay(addForm) {
+        axios.post(`${URL}plays/`, addForm).then(response => {
         console.log(response)
         }).catch(error => {
-        console.log(error)
+        console.log(error.response.data)
         })
     }
 
@@ -81,7 +75,7 @@ const Home = () => {
                 </div>
             )  
             )}
-           
+           <AddForm onAddPlay={addPlay}/>
         </div>
     )
 }
