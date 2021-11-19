@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-const UpdateForm = ({play, onUpdatePlay}) => {
+
+const UpdateForm = ({play, onUpdatePlay, onDeletePlay, onClose}) => {
     const [updatePlay, setUpdatePlay] = useState(play)
 
     const handleChange = (event) => {
@@ -13,6 +14,7 @@ const UpdateForm = ({play, onUpdatePlay}) => {
     }
     
     return(
+        <div>
         <form onSubmit={handleSubmit}>
             <input type='text' defaultValue={play.title} name='title' onChange={handleChange}/>
             <input type='text' defaultValue={play.author} name='author' onChange={handleChange}/>
@@ -21,6 +23,10 @@ const UpdateForm = ({play, onUpdatePlay}) => {
             <input type='text' defaultValue={play.director_notes} name='director_notes' onChange={handleChange}/>
             <input type='submit' value='update play'/>
         </form>
+        <button onClick={() => onDeletePlay(play.id)}>
+            Delete Play
+        </button>
+        </div>
     )
 }
 
