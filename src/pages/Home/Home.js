@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import DeletePlay from "./DeletePlay";
+import UpdateForm from "./UpdateForm";
 const axios = require('axios');
 
 
    
 const Home = () => {
     URL = 'http://127.0.0.1:8000/'
-    const [plays, setPlays] = useState(null)
+    const [plays, setPlays] = useState([])
 
     async function getPlays() {
         try
@@ -39,15 +39,34 @@ const Home = () => {
             })
     }
 
+    function updatePlay(form) {
+        const {title,                   author,               reference_img,
+        concept,
+        director_notes, 
+        id} = form
+        axios.put(`${URL}plays/${id}`, {
+            title, 
+            author,
+            reference_img,
+            concept,
+            director_notes
+        }).then(response => {
+            console.log(response)
+            }).catch(error => {
+            console.log(error)
+            })
+    }
+
     useEffect(() => {
         getPlays()
     }, [])
+
     console.log(plays)
     return(
         <div>
             <h1>Plays</h1>
             {plays.map((play)=> (
-                <div>
+                <div key={play.id}>
                 <h3>{play.title}</h3>
                 <h4>{play.author}</h4>
                 <h4>{play.concept}</h4>
@@ -56,6 +75,9 @@ const Home = () => {
                 <button onClick={() => deletePlay(play.id)}>
                     Delete Play
                 </button>
+                <UpdateForm play={play}
+                id={play.id}
+                onUpdatePlay={updatePlay}/>
                 </div>
             )  
             )}
