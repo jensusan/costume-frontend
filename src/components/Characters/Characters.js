@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
 import NavBar from "../NavBar/NavBar";
+import AddForm from "./AddForm";
+import UpdateForm from "./UpdateForm";
+import { useParams } from "react-router";
 
 const axios = require('axios');
 
 const Characters = () => {
     URL = 'http://127.0.0.1:8000/'
+    const {id} = useParams()
     const [characters, setCharacters] = useState([])
 
     async function getCharacters(props) {
@@ -33,10 +37,10 @@ const Characters = () => {
     }
 
     function updateCharacter(form) {
-        const {name, actor, sketches, reference_img, notes, play,
+        const {name, actor, sketches, reference_img, notes, play, play_id,
         id} = form
         axios.put(`${URL}characters/${id}`, {
-            name, actor, sketches, reference_img, notes, play
+            name, actor, sketches, reference_img, notes, play, play_id
         }).then(response => {
             console.log(response)
             }).catch(error => {
@@ -48,10 +52,32 @@ const Characters = () => {
         getCharacters()
     }, [])
 
+    let playCharacter = []
+    characters.map((character) => {
+        if (character.play_id == id) {
+            playCharacter.push(character)
+        }
+        }
+)
+
+
     return(
         <div>
             <NavBar/>
             <h1>Characters</h1>
+           { playCharacter.map((char) => (
+               <div key={char.id}>
+                   <h3>{char.name}</h3>
+                   <h3>{char.actor}</h3>
+                   <h3>{char.notes}</h3>
+                   <img src={char.sketches} alt='sketch'/>
+                   <img src={char.reference_img} alt='costume inspiration'/>
+                   <UpdateForm onDeleteCharacter={deleteCharacter} onUpdateCharacter={updateCharacter} character={char}/>
+               </div>
+                
+            ))}
+           
+            <AddForm onAddCharacter={addCharacter}/>
         </div>
     )
 } 
