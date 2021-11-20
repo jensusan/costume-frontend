@@ -3,8 +3,9 @@ import { useState } from "react";
 
 const UpdateForm = ({todo, onUpdateTodos, onDeleteTodos, onClose}) => {
     const [updateTodo, setUpdateTodo] = useState(todo)
-
+    
     const handleChange = (event) => {
+        console.log(event.target.value)
         setUpdateTodo(prevState => ({
             ...prevState, [event.target.name] : event.target.value,
         }))

@@ -3,7 +3,7 @@ import NavBar from "../NavBar/NavBar";
 import AddForm from "./AddForm";
 import UpdateForm from "./UpdateForm";
 import { useParams } from "react-router";
-
+import { Wrapper, Content } from "./Characters-styled";
 const axios = require('axios');
 
 const Characters = () => {
@@ -64,20 +64,27 @@ const Characters = () => {
     return(
         <div>
             <NavBar/>
-            <h1>Characters</h1>
+            <Wrapper>
+            <h1 className='title'>Characters</h1>
            { playCharacter.map((char) => (
-               <div key={char.id}>
-                   <h3>{char.name}</h3>
-                   <h3>{char.actor}</h3>
-                   <h3>{char.notes}</h3>
-                   <img src={char.sketches} alt='sketch'/>
-                   <img src={char.reference_img} alt='costume inspiration'/>
+               <Content key={char.id}>
+                   <h4 className='label'>Character Name:</h4>
+                   <h3 className='input'>{char.name}</h3>
+                   <h4 className='label'>Actor:</h4>
+                   <h3 className='input'>{char.actor}</h3>
+                   <h4 className='label'>Notes:</h4>
+                   <h3 className='input'>{char.notes}</h3>
+                   <h4 className='label'>Sketches:</h4>
+                   <img clasName='img' src={char.sketches} alt='sketch'/>
+                   <h4 className='label'>Reference Images:</h4>
+                   <img clasName='img' src={char.reference_img} alt='costume inspiration'/>
                    <UpdateForm onDeleteCharacter={deleteCharacter} onUpdateCharacter={updateCharacter} character={char}/>
-               </div>
+               </Content>
                 
             ))}
            
-            <AddForm onAddCharacter={addCharacter}/>
+                <AddForm onAddCharacter={addCharacter}/>
+            </Wrapper>
         </div>
     )
 } 

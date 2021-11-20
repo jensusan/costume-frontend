@@ -3,13 +3,14 @@ import { useParams } from "react-router";
 import NavBar from "../NavBar/NavBar";
 import UpdateForm from "./UpdateForm";
 import AddForm from "./AddForm";
+import { Wrapper, Content } from "./Todos-styled";
 const axios = require('axios');
 
 const Todos = () => {
     URL = 'http://127.0.0.1:8000/'
     const {id} = useParams()
     const [todos, setTodos] = useState([])
-
+    
     async function getTodos() {
         try
         {const response = await axios.get(`${URL}todos/`)
@@ -61,18 +62,20 @@ const Todos = () => {
     return(
         <div>
             <NavBar/>
-            <h1>Todos</h1>
+            <Wrapper>
+            <h1 className='title'>Todos</h1>
+           
           { playTodo.map((pt) => (
-              <div key={pt.id}>
-                <input type='checkbox'/>
+              <Content key={pt.id}>
+                
                 <h4>{pt.task}</h4>
                 <UpdateForm todo={pt} onUpdateTodos={updateTodo} onDeleteTodos={deleteTodo}/>
-              </div>
+              </Content>
           ))}
 
           <AddForm onAddTodo={addTodo}/>
             
-
+            </Wrapper>
         </div>
     )
 }

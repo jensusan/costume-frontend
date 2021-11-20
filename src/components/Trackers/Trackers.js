@@ -3,6 +3,7 @@ import NavBar from "../NavBar/NavBar";
 import { useParams } from "react-router";
 import AddForm from "./AddForm";
 import UpdateForm from "./UpdateForm";
+import { Wrapper, Content } from "./Trackers-styled";
 const axios = require('axios');
 
 const Trackers = () => {
@@ -61,19 +62,31 @@ const Trackers = () => {
     return(
         <div>
             <NavBar/>
-            <h1>Trackers</h1>
-             {playTrack.map((pt) => (
-                 <div key={pt.id}>
-                 <h4>{pt.scene}</h4>
-                 <h4>{pt.character}</h4>
-                 <h4>{pt.notes}</h4>
-                    <UpdateForm tracker={pt} onUpdateTracker={updateTrack}
-                    onDeleteTracker={deleteTrack}/>
-                 </div>
+            <Wrapper>
+            <h1 className='title'>Costume Tracker</h1>
+            <Content>
+            <table>
+            < tr>
+            <th className='label'>Scene</th>
+            <th className='label'>Character</th>
+            <th className='label'>Notes</th>
+               </tr>
+                    {playTrack.map((pt) => (
+                   
+                        <tr>
+                        <td className='input'>{pt.scene}</td>
+                        <td className='input'>{pt.character}</td>
+                        <td className='input'>{pt.notes}</td>
+                        <td>
+                        <UpdateForm tracker={pt} onUpdateTracker={updateTrack} onDeleteTracker={deleteTrack}/>
+                        </td>
+                        </tr>
              ))}
-       
-       <AddForm onAddTracker={addTrack} />
-        </div>
+        </table>
+        <AddForm onAddTracker={addTrack} />
+        </Content>
+       </Wrapper>
+    </div>
     )
 }
 

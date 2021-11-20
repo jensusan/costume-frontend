@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 import NavBar from "../NavBar/NavBar";
-
+import { Content, Wrapper } from "./Play-styled";
 const Play = (props) => {
     const { id } = useParams();
     let play = [];
@@ -14,18 +14,20 @@ const Play = (props) => {
     console.log(play)
     return(
         <>
-        <NavBar/>
-        <div>
-                <h3>{play.title}</h3>
-                <h4>Author:</h4>
-                <h4>{play.author}</h4>
-                <h4>Concept:</h4>
-                <h4>{play.concept}</h4>
-                <h4>Director Notes:</h4>
-                <h4>{play.director_notes}</h4>
-                <h4>Reference Image:</h4>
-                <img className='play-img' src={play.reference_img} alt='reference image'/>
-        </div>
+          <NavBar/>
+          <Wrapper>
+            <Content>
+              <h3 className='title'>{play.title}</h3>
+              <h4 className='label'>Author:</h4>
+              <h3 className='input'>{play.author}</h3>
+              <h4 className='label'>Concept:</h4>
+              <h3 className='input'>{play.concept}</h3>
+              <h4 className='label'>Director Notes:</h4>
+              <h3 className='input'>{play.director_notes}</h3>
+              <h4 className='label'>Reference Image:</h4>
+              <img className='play-img' src={play.reference_img} alt='reference image'/>
+            </Content>
+          </Wrapper>
         </>
     )
 }
