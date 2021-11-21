@@ -51,6 +51,16 @@ const Trackers = () => {
         getTrackers()
     }, [])
 
+    const [addVisible, setAddVisible] = useState(false);
+
+    const handleShowAdd = () => {
+        setAddVisible(true)
+    };
+
+    const handleHideAdd = () => {
+        setAddVisible(false)
+    };
+
     let playTrack = []
     trackers.map((track) => {
         if (track.play_id == id) {
@@ -83,7 +93,10 @@ const Trackers = () => {
                         </tr>
              ))}
         </table>
-        <AddForm onAddTracker={addTrack} />
+        
+           {addVisible && <AddForm onAddTracker={addTrack} onClose={handleHideAdd} />}
+           <button onClick={handleShowAdd}>Add Play</button>
+        
         </Content>
        </Wrapper>
     </div>

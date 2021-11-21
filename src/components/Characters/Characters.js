@@ -59,7 +59,15 @@ const Characters = () => {
         }
         }
 )
+const [addVisible, setAddVisible] = useState(false);
 
+const handleShowAdd = () => {
+    setAddVisible(true)
+};
+
+const handleHideAdd = () => {
+    setAddVisible(false)
+};
 
     return(
         <div>
@@ -82,8 +90,8 @@ const Characters = () => {
                </Content>
                 
             ))}
-           
-                <AddForm onAddCharacter={addCharacter}/>
+            {addVisible && <AddForm onAddCharacters={addCharacter} onClose={handleHideAdd} />}
+           <button onClick={handleShowAdd}>Add Todo</button>
             </Wrapper>
         </div>
     )

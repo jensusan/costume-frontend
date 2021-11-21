@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { useParams } from 'react-router'
+import Modal from '../../pages/Home/Modal'
 
-const AddForm = ({onAddTracker}) => {
+const AddForm = ({onAddTracker, onClose}) => {
     const {id} = useParams()
     const [newTrack, setNewTrack] = useState({scene: '',
     character: '',
@@ -26,6 +27,7 @@ const AddForm = ({onAddTracker}) => {
         )
     }
     return(
+        <Modal onClose={onClose}>
         <form onSubmit={handleSubmit}>
           <input type='text' value={newTrack.scene} name='scene' placeholder='Scene' onChange={handleChange}/>
             <input type='text' value={newTrack.character} placeholder='Character' name='character' onChange={handleChange}/>
@@ -34,6 +36,7 @@ const AddForm = ({onAddTracker}) => {
             <input type='submit' value='add track'/>  
 
         </form>
+        </Modal>
     )
 }
 

@@ -65,6 +65,20 @@ const Home = ({plays}) => {
         setEditVisible(false)
     };
 
+    const [addVisible, setAddVisible] = useState(false);
+
+    const handleShowAdd = () => {
+        setAddVisible(true)
+    };
+
+    const handleHideAdd = () => {
+        setAddVisible(false)
+    };
+
+
+
+
+
     return(
         <Wrapper>
             <h1 className='main-title'>All Plays</h1>
@@ -88,7 +102,8 @@ const Home = ({plays}) => {
             )  
             )}
               <button className='edit-btn' onClick={handleShowEdit}>Edit</button>
-           <AddForm onAddPlay={addPlay}/>
+           {addVisible && <AddForm onAddPlay={addPlay} onClose={handleHideAdd} />}
+           <button onClick={handleShowAdd}>Add Play</button>
         </Wrapper>
     )
 }

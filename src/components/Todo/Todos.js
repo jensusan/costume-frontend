@@ -51,6 +51,16 @@ const Todos = () => {
         getTodos()
     }, [])
 
+    const [addVisible, setAddVisible] = useState(false);
+
+    const handleShowAdd = () => {
+        setAddVisible(true)
+    };
+
+    const handleHideAdd = () => {
+        setAddVisible(false)
+    };
+
     let playTodo = []
     todos.map((todo) => {
     if (todo.play_id == id) {
@@ -72,8 +82,9 @@ const Todos = () => {
                 <UpdateForm todo={pt} onUpdateTodos={updateTodo} onDeleteTodos={deleteTodo}/>
               </Content>
           ))}
-
-          <AddForm onAddTodo={addTodo}/>
+            {addVisible && <AddForm onAddTodo={addTodo} onClose={handleHideAdd} />}
+           <button onClick={handleShowAdd}>Add Todo</button>
+          
             
             </Wrapper>
         </div>

@@ -1,6 +1,7 @@
 import { useState } from 'react'
+import Modal from './Modal';
 
-const AddForm = ({onAddPlay}) => {
+const AddForm = ({onAddPlay, onClose}) => {
     const [newPlay, setNewPlay] = useState({title: '',
     author: '',
     reference_img: '',
@@ -24,6 +25,7 @@ const AddForm = ({onAddPlay}) => {
         )
     }
     return(
+        <Modal onClose={onClose}>
         <form onSubmit={handleSubmit}>
           <input type='text' value={newPlay.title} name='title' placeholder='Title' onChange={handleChange}/>
             <input type='text' value={newPlay.author} placeholder='Author' name='author' onChange={handleChange}/>
@@ -33,6 +35,7 @@ const AddForm = ({onAddPlay}) => {
             <input type='submit' value='add play'/>  
 
         </form>
+        </Modal>
     )
 }
 
