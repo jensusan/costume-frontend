@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { useParams } from 'react-router'
 import Modal from '../../pages/Home/Modal'
+import { Wrapper } from '../../pages/Home/AddForm-styled'
 
-const AddForm = ({onAddCharacter}) => {
+const AddForm = ({onAddCharacter, onClose}) => {
     const {id} = useParams()
     const [newCharacter, setNewCharacter] = useState({name: '',
     actor: '',
@@ -31,6 +32,7 @@ const AddForm = ({onAddCharacter}) => {
     }
     return(
         <Modal onClose={onClose}>
+            <Wrapper>
         <form onSubmit={handleSubmit}>
           <input type='text' value={newCharacter.name} name='name' placeholder='name' onChange={handleChange}/>
             <input type='text' value={newCharacter.actor} placeholder='actor' name='actor' onChange={handleChange}/>
@@ -40,6 +42,7 @@ const AddForm = ({onAddCharacter}) => {
             <input type='submit' value='add character'/>  
 
         </form>
+        </Wrapper>
         </Modal>
     )
 }

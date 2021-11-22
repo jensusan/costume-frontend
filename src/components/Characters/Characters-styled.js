@@ -11,6 +11,15 @@ export const Wrapper = styled.div`
         text-align: center;
         margin-bottom: 50px;
     }
+
+    button {
+        text-transform: uppercase;
+        margin: 20px;
+        letter-spacing: 1px;
+        background-color: var(--darkGreen);
+        padding: 3px 5px;
+        font-weight: var(--bold);
+    }
 `
 
 export const Content = styled.div`
@@ -35,4 +44,5 @@ export const Content = styled.div`
         width: 60vw;
     }
 
+  
 `

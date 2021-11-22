@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import Modal from './Modal';
+import { Wrapper } from './AddForm-styled';
+
 
 const AddForm = ({onAddPlay, onClose}) => {
     const [newPlay, setNewPlay] = useState({title: '',
@@ -26,6 +28,7 @@ const AddForm = ({onAddPlay, onClose}) => {
     }
     return(
         <Modal onClose={onClose}>
+            <Wrapper>
         <form onSubmit={handleSubmit}>
           <input type='text' value={newPlay.title} name='title' placeholder='Title' onChange={handleChange}/>
             <input type='text' value={newPlay.author} placeholder='Author' name='author' onChange={handleChange}/>
@@ -33,8 +36,8 @@ const AddForm = ({onAddPlay, onClose}) => {
             <input type='text' value={newPlay.concept} name='concept' placeholder='Concept' onChange={handleChange}/>
             <input type='text' value={newPlay.director_notes} name='director_notes' placeholder='Director Notes' onChange={handleChange}/>
             <input type='submit' value='add play'/>  
-
         </form>
+        </Wrapper>
         </Modal>
     )
 }

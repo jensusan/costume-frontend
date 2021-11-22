@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+    margin: 40px;
     .title {
         font-weight: var(--extraBold);
         letter-spacing: 2px;
@@ -25,6 +26,16 @@ export const Content = styled.div`
     font-weight: var(--regular);
     text-transform: capitalize;
     color: var(--burgandy);
+}
+
+button {
+    text-transform: uppercase;
+    margin: 20px;
+    letter-spacing: 1px;
+    background-color: var(--burgandy);
+    color: var(--lilac);
+    padding: 3px 5px;
+    font-weight: var(--bold);
 }
 
 

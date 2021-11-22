@@ -4,6 +4,8 @@ import NavBar from "../NavBar/NavBar";
 import UpdateForm from "./UpdateForm";
 import AddForm from "./AddForm";
 import { Wrapper, Content } from "./Todos-styled";
+import { Button } from "../Button-styled";
+
 const axios = require('axios');
 
 const Todos = () => {
@@ -61,6 +63,16 @@ const Todos = () => {
         setAddVisible(false)
     };
 
+    const [editVisible, setEditVisible] = useState(false);
+
+    const handleShowEdit = () => {
+        setEditVisible(true)
+    };
+
+    const handleHideEdit = () => {
+        setEditVisible(false)
+    };
+
     let playTodo = []
     todos.map((todo) => {
     if (todo.play_id == id) {
@@ -79,11 +91,12 @@ const Todos = () => {
               <Content key={pt.id}>
                 
                 <h4>{pt.task}</h4>
-                <UpdateForm todo={pt} onUpdateTodos={updateTodo} onDeleteTodos={deleteTodo}/>
+                {editVisible && <UpdateForm todo={pt} onUpdateTodos={updateTodo} onDeleteTodos={deleteTodo}/>}
               </Content>
           ))}
             {addVisible && <AddForm onAddTodo={addTodo} onClose={handleHideAdd} />}
-           <button onClick={handleShowAdd}>Add Todo</button>
+            <Button className='edit-btn' onClick={handleShowEdit}>Edit Task</Button>
+           <Button onClick={handleShowAdd}>Add Task</Button>
           
             
             </Wrapper>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { Wrapper } from '../../pages/Home/UpdateForm-styled';
 
 const UpdateForm = ({todo, onUpdateTodos, onDeleteTodos, onClose}) => {
     const [updateTodo, setUpdateTodo] = useState(todo)
@@ -17,15 +17,15 @@ const UpdateForm = ({todo, onUpdateTodos, onDeleteTodos, onClose}) => {
     }
     
     return(
-        <div>
+        <Wrapper>
         <form onSubmit={handleSubmit}>
             <input type='text' defaultValue={todo.task} name='task' onChange={handleChange}/>
-            <input type='submit' value='update'/>
+            <input className='btn' type='submit' value='update'/>
         </form>
-        <button onClick={() => onDeleteTodos(todo.id)}>
+        <button className='del-btn' onClick={() => onDeleteTodos(todo.id)}>
             Delete Todo
         </button>
-        </div>
+        </Wrapper>
     )
 }
 

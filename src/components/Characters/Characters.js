@@ -69,6 +69,16 @@ const handleHideAdd = () => {
     setAddVisible(false)
 };
 
+const [editVisible, setEditVisible] = useState(false);
+
+    const handleShowEdit = () => {
+        setEditVisible(true)
+    };
+
+    const handleHideEdit = () => {
+        setEditVisible(false)
+    };
+
     return(
         <div>
             <NavBar/>
@@ -86,12 +96,13 @@ const handleHideAdd = () => {
                    <img clasName='img' src={char.sketches} alt='sketch'/>
                    <h4 className='label'>Reference Images:</h4>
                    <img clasName='img' src={char.reference_img} alt='costume inspiration'/>
-                   <UpdateForm onDeleteCharacter={deleteCharacter} onUpdateCharacter={updateCharacter} character={char}/>
+                  {editVisible && <UpdateForm onDeleteCharacter={deleteCharacter} onUpdateCharacter={updateCharacter} character={char}/>}
                </Content>
                 
             ))}
             {addVisible && <AddForm onAddCharacters={addCharacter} onClose={handleHideAdd} />}
-           <button onClick={handleShowAdd}>Add Todo</button>
+            <button className='edit-btn' onClick={handleShowEdit}>Edit Character</button>
+           <button onClick={handleShowAdd}>Add Character</button>
             </Wrapper>
         </div>
     )

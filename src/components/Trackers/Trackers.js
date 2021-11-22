@@ -61,6 +61,16 @@ const Trackers = () => {
         setAddVisible(false)
     };
 
+    const [editVisible, setEditVisible] = useState(false);
+
+    const handleShowEdit = () => {
+        setEditVisible(true)
+    };
+
+    const handleHideEdit = () => {
+        setEditVisible(false)
+    };
+
     let playTrack = []
     trackers.map((track) => {
         if (track.play_id == id) {
@@ -75,27 +85,22 @@ const Trackers = () => {
             <Wrapper>
             <h1 className='title'>Costume Tracker</h1>
             <Content>
-            <table>
-            < tr>
-            <th className='label'>Scene</th>
-            <th className='label'>Character</th>
-            <th className='label'>Notes</th>
-               </tr>
                     {playTrack.map((pt) => (
-                   
-                        <tr>
-                        <td className='input'>{pt.scene}</td>
-                        <td className='input'>{pt.character}</td>
-                        <td className='input'>{pt.notes}</td>
-                        <td>
-                        <UpdateForm tracker={pt} onUpdateTracker={updateTrack} onDeleteTracker={deleteTrack}/>
-                        </td>
-                        </tr>
-             ))}
-        </table>
-        
+                   <div>
+                   <h3 className='label'>Scene</h3>
+                        <p className='input'>{pt.scene}</p>
+                        <h3 className='label'>Character</h3>
+                        <p className='input'>{pt.character}</p>
+                        <h3 className='label'>Notes</h3>
+                        <p className='input'>{pt.notes}</p>
+                        {editVisible &&<UpdateForm tracker={pt} onUpdateTracker={updateTrack} onDeleteTracker={deleteTrack}/>}
            {addVisible && <AddForm onAddTracker={addTrack} onClose={handleHideAdd} />}
-           <button onClick={handleShowAdd}>Add Play</button>
+                        </div>
+             ))}
+       
+       
+           <button onClick={handleShowAdd}>Add Track</button>
+           <button className='edit-btn' onClick={handleShowEdit}>Edit Track</button>
         
         </Content>
        </Wrapper>
