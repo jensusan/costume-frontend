@@ -6,11 +6,11 @@ import { Wrapper } from '../../pages/Home/AddForm-styled'
 const AddForm = ({onAddCharacter, onClose}) => {
     const {id} = useParams()
     const [newCharacter, setNewCharacter] = useState({name: '',
-    actor: '',
-    sketches: '',
-    reference_img: '',
-    notes: '',
-    play_id: id})
+        actor: '',
+        sketches: '',
+        reference_img: '',
+        notes: '',
+        play_id: id})
 
     function handleChange(event) {
         setNewCharacter(prevState => ({
@@ -33,16 +33,15 @@ const AddForm = ({onAddCharacter, onClose}) => {
     return(
         <Modal onClose={onClose}>
             <Wrapper>
-        <form onSubmit={handleSubmit}>
-          <input type='text' value={newCharacter.name} name='name' placeholder='name' onChange={handleChange}/>
-            <input type='text' value={newCharacter.actor} placeholder='actor' name='actor' onChange={handleChange}/>
-            <input type='text' value={newCharacter.sketches} name='sketches' placeholder='sketches' onChange={handleChange}/>
-            <input type='text' value={newCharacter.reference_img} name='reference_img' placeholder='reference images' onChange={handleChange}/>
-            <input type='text' value={newCharacter.notes} name='notes' placeholder='Notes' onChange={handleChange}/>
-            <input type='submit' value='add character'/>  
-
-        </form>
-        </Wrapper>
+                <form onSubmit={handleSubmit}>
+                    <input type='text' value={newCharacter.name} name='name' placeholder='name' onChange={handleChange}/>
+                    <input type='text' value={newCharacter.actor} placeholder='actor' name='actor' onChange={handleChange}/>
+                    <input type='text' value={newCharacter.sketches} name='sketches' placeholder='sketches' onChange={handleChange}/>
+                    <input type='text' value={newCharacter.reference_img} name='reference_img' placeholder='reference images' onChange={handleChange}/>
+                    <input type='text' value={newCharacter.notes} name='notes' placeholder='Notes' onChange={handleChange}/>
+                    <input type='submit' value='add character'/>  
+                </form>
+            </Wrapper>
         </Modal>
     )
 }

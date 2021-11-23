@@ -41,7 +41,7 @@ export const Content = styled.div`
     }
 
     .img {
-        width: 60vw;
+        width: 40vw;
     }
 
   

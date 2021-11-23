@@ -7,7 +7,7 @@ form {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    margin: 15px 130px;
+    margin: 15px 120px;
 }
 input {
     text-transform: uppercase;

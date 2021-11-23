@@ -18,13 +18,13 @@ const UpdateForm = ({todo, onUpdateTodos, onDeleteTodos, onClose}) => {
     
     return(
         <Wrapper>
-        <form onSubmit={handleSubmit}>
-            <input type='text' defaultValue={todo.task} name='task' onChange={handleChange}/>
-            <input className='btn' type='submit' value='update'/>
-        </form>
-        <button className='del-btn' onClick={() => onDeleteTodos(todo.id)}>
+            <form onSubmit={handleSubmit}>
+                <input type='text' defaultValue={todo.task} name='task' onChange={handleChange}/>
+                <input className='btn' type='submit' value='update'/>
+            </form>
+            <button className='del-btn' onClick={() => onDeleteTodos(todo.id)}>
             Delete Todo
-        </button>
+            </button>
         </Wrapper>
     )
 }

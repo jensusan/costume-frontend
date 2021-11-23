@@ -17,14 +17,14 @@ const UpdateForm = ({tracker, onUpdateTracker, onDeleteTracker, onClose}) => {
     
     return(
         <Wrapper>
-        <form onSubmit={handleSubmit}>
-            <input type='text' defaultValue={tracker.scene} name='scene' onChange={handleChange}/>
-            <input type='text' defaultValue={tracker.character} name='character' onChange={handleChange}/>
-            <input type='text' defaultValue={tracker.change} name='change' onChange={handleChange}/>
-            <input type='text' defaultValue={tracker.notes} name='notes' onChange={handleChange}/>
-            <input className='btn' type='submit' value='update track' onChange={handleChange}/>
-        </form>
-        <button className='del-btn' onClick={() => onDeleteTracker(tracker.id)}>Delete Track</button>
+            <form onSubmit={handleSubmit}>
+                <input type='text' defaultValue={tracker.scene} name='scene' onChange={handleChange}/>
+                <input type='text' defaultValue={tracker.character} name='character' onChange={handleChange}/>
+                <input type='text' defaultValue={tracker.change} name='change' onChange={handleChange}/>
+                <input type='text' defaultValue={tracker.notes} name='notes' onChange={handleChange}/>
+                <input className='btn' type='submit' value='update track' onChange={handleChange}/>
+            </form>
+            <button className='del-btn' onClick={() => onDeleteTracker(tracker.id)}>Delete Track</button>
         </Wrapper>
     )
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useParams } from 'react-router'
 import Modal from '../../pages/Home/Modal'
+import { Wrapper } from '../../pages/Home/Home-styled'
 
 const AddForm = ({onAddTodo, onClose}) => {
     const {id} = useParams()
@@ -23,11 +24,13 @@ const AddForm = ({onAddTodo, onClose}) => {
     }
     return(
         <Modal onClose={onClose}>
-        <form onSubmit={handleSubmit}>
-            <input type='text' value={newTodo.task} name='task' placeholder='New Task' onChange={handleChange}/>
-            <input type='submit' value='add task'/>  
+            <Wrapper>
+                <form onSubmit={handleSubmit}>
+                    <input type='text' value={newTodo.task} name='task' placeholder='New Task' onChange={handleChange}/>
+                    <input type='submit' value='ADD TASK'/>  
 
-        </form>
+                </form>
+            </Wrapper>
         </Modal>
     )
 }

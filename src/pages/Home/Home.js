@@ -54,12 +54,12 @@ const Home = ({plays}) => {
                 <div key={play.id} className='play-content'>
                 <Link to={`/plays/${play.id}`} style={{textDecoration: 'none'}}><h2 className='title'>{play.title}</h2></Link>
                 <Content>
-                <h4 className='label'>Author:</h4>
-                <h3 className='input'>{play.author}</h3>
-                <h4 className='label'>Concept:</h4>
+                {/* <h4 className='label'>Author:</h4>
+                <h3 className='input'>{play.author}</h3> */}
+                {/* <h4 className='label'>Concept:</h4>
                 <h3 className='input'>{play.concept}</h3>
                 <h4 className='label'>Director Notes:</h4>
-                <h3 className='input'>{play.director_notes}</h3>
+                <h3 className='input'>{play.director_notes}</h3> */}
                 <h4 className='label'>Reference Image:</h4>
                 <Link to={`/plays/${play.id}`} style={{textDecoration: 'none'}}><img className='play-img' src={play.reference_img} alt='reference image'/></Link>
                 </Content>

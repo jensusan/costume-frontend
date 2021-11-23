@@ -58,18 +58,18 @@ const Characters = () => {
             playCharacter.push(character)
         }
         }
-)
-const [addVisible, setAddVisible] = useState(false);
+    )
+    const [addVisible, setAddVisible] = useState(false);
 
-const handleShowAdd = () => {
-    setAddVisible(true)
-};
+    const handleShowAdd = () => {
+        setAddVisible(true)
+    };
 
-const handleHideAdd = () => {
-    setAddVisible(false)
-};
+    const handleHideAdd = () => {
+        setAddVisible(false)
+    };
 
-const [editVisible, setEditVisible] = useState(false);
+    const [editVisible, setEditVisible] = useState (false);
 
     const handleShowEdit = () => {
         setEditVisible(true)
@@ -83,8 +83,8 @@ const [editVisible, setEditVisible] = useState(false);
         <div>
             <NavBar/>
             <Wrapper>
-            <h1 className='title'>Characters</h1>
-           { playCharacter.map((char) => (
+                <h1 className='title'>Characters</h1>
+                { playCharacter.map((char) => (
                <Content key={char.id}>
                    <h4 className='label'>Character Name:</h4>
                    <h3 className='input'>{char.name}</h3>
@@ -93,16 +93,16 @@ const [editVisible, setEditVisible] = useState(false);
                    <h4 className='label'>Notes:</h4>
                    <h3 className='input'>{char.notes}</h3>
                    <h4 className='label'>Sketches:</h4>
-                   <img clasName='img' src={char.sketches} alt='sketch'/>
+                   <img className='img' src={char.sketches} alt='sketch'/>
                    <h4 className='label'>Reference Images:</h4>
-                   <img clasName='img' src={char.reference_img} alt='costume inspiration'/>
+                   <img className='img' src={char.reference_img} alt='costume inspiration'/>
                   {editVisible && <UpdateForm onDeleteCharacter={deleteCharacter} onUpdateCharacter={updateCharacter} character={char}/>}
                </Content>
                 
-            ))}
-            {addVisible && <AddForm onAddCharacters={addCharacter} onClose={handleHideAdd} />}
-            <button className='edit-btn' onClick={handleShowEdit}>Edit Character</button>
-           <button onClick={handleShowAdd}>Add Character</button>
+                ))}
+                {addVisible && <AddForm onAddCharacter={addCharacter} onClose={handleHideAdd} />}
+                <button className='edit-btn' onClick={handleShowEdit}>Edit Character</button>
+                <button onClick={handleShowAdd}>Add Character</button>
             </Wrapper>
         </div>
     )

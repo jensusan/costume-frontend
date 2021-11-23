@@ -83,26 +83,26 @@ const Trackers = () => {
         <div>
             <NavBar/>
             <Wrapper>
-            <h1 className='title'>Costume Tracker</h1>
-            <Content>
+                <h1 className='title'>Costume Tracker</h1>
+                <Content>
                     {playTrack.map((pt) => (
                    <div>
-                   <h3 className='label'>Scene</h3>
+                        <h3 className='label'>Scene</h3>
                         <p className='input'>{pt.scene}</p>
                         <h3 className='label'>Character</h3>
                         <p className='input'>{pt.character}</p>
                         <h3 className='label'>Notes</h3>
                         <p className='input'>{pt.notes}</p>
-                        {editVisible &&<UpdateForm tracker={pt} onUpdateTracker={updateTrack} onDeleteTracker={deleteTrack}/>}
-           {addVisible && <AddForm onAddTracker={addTrack} onClose={handleHideAdd} />}
+                        {editVisible && <UpdateForm tracker={pt} onUpdateTracker={updateTrack} onDeleteTracker={deleteTrack}/>}
+                         
                         </div>
-             ))}
+                    ))}
        
-       
-           <button onClick={handleShowAdd}>Add Track</button>
-           <button className='edit-btn' onClick={handleShowEdit}>Edit Track</button>
+                {addVisible &&<AddForm onAddTracker={addTrack} onClose={handleHideAdd} />}
+                <button onClick={handleShowAdd}>Add Track</button>
+                <button className='edit-btn' onClick={handleShowEdit}>Edit Track</button>
         
-        </Content>
+            </Content>
        </Wrapper>
     </div>
     )

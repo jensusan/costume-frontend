@@ -70,7 +70,7 @@ const Play = (props) => {
               <img className='play-img' src={play.reference_img} alt='reference image'/>
               {editVisible && <UpdateForm play={play}
                 id={play.id}
-                onUpdatePlay={updatePlay} onClose={handleHideEdit} onDeleteplay={deletePlay}/>}
+                onUpdatePlay={updatePlay} onClose={handleHideEdit} onDeletePlay={deletePlay}/>}
                 <Button className='edit-btn' onClick={handleShowEdit}>Edit Play</Button>
             </Content>
            

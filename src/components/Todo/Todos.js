@@ -85,20 +85,18 @@ const Todos = () => {
         <div>
             <NavBar/>
             <Wrapper>
-            <h1 className='title'>Todos</h1>
+                <h1 className='title'>Todos</h1>
            
-          { playTodo.map((pt) => (
-              <Content key={pt.id}>
-                
-                <h4>{pt.task}</h4>
-                {editVisible && <UpdateForm todo={pt} onUpdateTodos={updateTodo} onDeleteTodos={deleteTodo}/>}
-              </Content>
-          ))}
-            {addVisible && <AddForm onAddTodo={addTodo} onClose={handleHideAdd} />}
-            <Button className='edit-btn' onClick={handleShowEdit}>Edit Task</Button>
-           <Button onClick={handleShowAdd}>Add Task</Button>
-          
-            
+                {playTodo.map((pt) => (
+                <Content key={pt.id}>
+                    <input type='checkbox' />
+                    <h4>{pt.task}</h4>
+                    {editVisible && <UpdateForm todo={pt} onUpdateTodos={updateTodo} onDeleteTodos={deleteTodo}/>}
+                </Content>
+                ))}
+                {addVisible && <AddForm onAddTodo={addTodo} onClose={handleHideAdd} />}
+                <Button className='edit-btn' onClick={handleShowEdit}>Edit Task</Button>
+                <Button onClick={handleShowAdd}>Add Task</Button>
             </Wrapper>
         </div>
     )

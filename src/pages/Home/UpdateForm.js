@@ -16,17 +16,17 @@ const UpdateForm = ({play, onUpdatePlay, onDeletePlay, onClose}) => {
     
     return(
         <Wrapper>
-        <form onSubmit={handleSubmit}>
-            <input type='text' defaultValue={play.title} name='title' onChange={handleChange}/>
-            <input type='text' defaultValue={play.author} name='author' onChange={handleChange}/>
-            <input type='text' defaultValue={play.reference_img} name='reference_img' onChange={handleChange}/>
-            <input type='text' defaultValue={play.concept} name='concept' onChange={handleChange}/>
-            <input type='text' defaultValue={play.director_notes} name='director_notes' onChange={handleChange}/>
-            <input className='btn' type='submit' value='update play'/>
-        </form>
-        <button className='del-btn' onClick={() => onDeletePlay(play.id)}>
+            <form onSubmit={handleSubmit}>
+                <input type='text' defaultValue={play.title} name='title' onChange={handleChange}/>
+                <input type='text' defaultValue={play.author} name='author' onChange={handleChange}/>
+                <input type='text' defaultValue={play.reference_img} name='reference_img' onChange={handleChange}/>
+                <input type='text' defaultValue={play.concept} name='concept' onChange={handleChange}/>
+                <input type='text' defaultValue={play.director_notes} name='director_notes' onChange={handleChange}/>
+                <input className='btn' type='submit' value='update play'/>
+            </form>
+            <button className='del-btn' onClick={() => onDeletePlay(play.id)}>
             Delete Play
-        </button>
+            </button>
         </Wrapper>
     )
 }
