@@ -8,7 +8,7 @@ const axios = require('axios');
 
    
 const Home = ({plays}) => {
-    URL = 'http://127.0.0.1:8000/'
+    URL = 'https://dashboard.heroku.com/apps/protected-brushlands-01164/'
     // const [plays, setPlays] = useState([])
 
     // async function getPlays() {
@@ -27,10 +27,6 @@ const Home = ({plays}) => {
         console.log(error.response.data)
         })
     }
-
-    
-    
-
     
 
     const [addVisible, setAddVisible] = useState(false);
@@ -42,9 +38,6 @@ const Home = ({plays}) => {
     const handleHideAdd = () => {
         setAddVisible(false)
     };
-
-
-
 
 
     return(
