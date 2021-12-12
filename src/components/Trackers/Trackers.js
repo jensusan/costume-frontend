@@ -91,6 +91,8 @@ const Trackers = () => {
                         <p className='input'>{pt.scene}</p>
                         <h3 className='label'>Character:</h3>
                         <p className='input'>{pt.character}</p>
+                        <h3 className='label'>Change:</h3>
+                        <p className='input'>{pt.change}</p>
                         <h3 className='label'>Notes:</h3>
                         <p className='input'>{pt.notes}</p>
                         {editVisible && <UpdateForm tracker={pt} onUpdateTracker={updateTrack} onDeleteTracker={deleteTrack}/>}
