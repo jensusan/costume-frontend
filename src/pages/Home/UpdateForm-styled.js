@@ -29,5 +29,6 @@ input {
     padding: 3px 5px;
     margin: 5px;
     margin-bottom: 25px;
+    color: black;
 }
 `

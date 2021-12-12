@@ -13,7 +13,11 @@ export const Wrapper = styled.div`
 `
 
 export const Content = styled.div`
-
+.main {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
 
 .label {
     text-transform: uppercase;

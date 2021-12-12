@@ -24,7 +24,7 @@ const UpdateForm = ({tracker, onUpdateTracker, onDeleteTracker, onClose}) => {
                 <input type='text' defaultValue={tracker.notes} name='notes' onChange={handleChange}/>
                 <input className='btn' type='submit' value='update track' onChange={handleChange}/>
             </form>
-            <button className='del-btn' onClick={() => onDeleteTracker(tracker.id)}>Delete Track</button>
+            <button className='del-btn' onClick={() => onDeleteTracker(tracker.id)}>Delete Tracker</button>
         </Wrapper>
     )
 }

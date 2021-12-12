@@ -86,12 +86,12 @@ const Trackers = () => {
                 <h1 className='title'>Costume Tracker</h1>
                 <Content>
                     {playTrack.map((pt) => (
-                   <div>
-                        <h3 className='label'>Scene</h3>
+                   <div className='main'>
+                        <h3 className='label'>Scene:</h3>
                         <p className='input'>{pt.scene}</p>
-                        <h3 className='label'>Character</h3>
+                        <h3 className='label'>Character:</h3>
                         <p className='input'>{pt.character}</p>
-                        <h3 className='label'>Notes</h3>
+                        <h3 className='label'>Notes:</h3>
                         <p className='input'>{pt.notes}</p>
                         {editVisible && <UpdateForm tracker={pt} onUpdateTracker={updateTrack} onDeleteTracker={deleteTrack}/>}
                          
