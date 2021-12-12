@@ -9,7 +9,7 @@ import { Button } from "../Button-styled";
 const axios = require('axios');
 
 const Todos = () => {
-    URL = 'http://127.0.0.1:8000/'
+    URL = 'https://protected-brushlands-01164.herokuapp.com/'
     const {id} = useParams()
     const [todos, setTodos] = useState([])
     
@@ -26,7 +26,7 @@ const Todos = () => {
         axios.post(`${URL}todos/`, addForm).then(response => {
         console.log(response)
         }).catch(error => {
-        console.log(error.response.data)
+        console.log(error.response)
         })
     }
 

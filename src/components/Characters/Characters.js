@@ -7,7 +7,7 @@ import { Wrapper, Content } from "./Characters-styled";
 const axios = require('axios');
 
 const Characters = () => {
-    URL = 'http://127.0.0.1:8000/'
+    URL = 'https://protected-brushlands-01164.herokuapp.com/'
     const {id} = useParams()
     const [characters, setCharacters] = useState([])
 

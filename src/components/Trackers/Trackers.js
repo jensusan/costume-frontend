@@ -7,7 +7,7 @@ import { Wrapper, Content } from "./Trackers-styled";
 const axios = require('axios');
 
 const Trackers = () => {
-    URL = 'http://127.0.0.1:8000/'
+    URL = 'https://protected-brushlands-01164.herokuapp.com/'
     const {id} = useParams()
     const [trackers, setTrackers] = useState([])
 

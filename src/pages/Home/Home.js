@@ -8,13 +8,14 @@ const axios = require('axios');
 
    
 const Home = ({plays}) => {
-    URL = 'https://dashboard.heroku.com/apps/protected-brushlands-01164/'
+    URL = 'https://protected-brushlands-01164.herokuapp.com/'
     // const [plays, setPlays] = useState([])
 
     // async function getPlays() {
     //     try
     //     {const response = await axios.get(`${URL}plays/`)
     //     setPlays(response.data)
+    //     console.log(response.data)
     //     } catch (error) {
     //     console.log(error)
     //     };
